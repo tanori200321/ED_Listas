@@ -35,5 +35,36 @@ namespace ListasSimplementeLigadas
             }
             return datosLista;
         }
+        public void AgregarNodo(string dato)
+        {
+            nodoActual = nodoInicial;
+            while (nodoActual.Enlace != null)
+            {
+                nodoActual = nodoActual.Enlace;
+            }
+            Nodo nodoNuevo = new Nodo(dato);
+            nodoActual.Enlace = nodoNuevo;
+        }
+        public Nodo Buscar(string dato)
+        {
+            if (ValidaVacio() == false)
+            {
+                Nodo nodoBusqueda = nodoInicial;
+                while (nodoBusqueda != null)
+                {
+                    nodoBusqueda = nodoBusqueda.Enlace;
+                    if (nodoBusqueda.Valor == dato)
+                    {
+                        return nodoBusqueda;
+                    }
+                }
+                
+
+            }
+            return null;
+        }
+
+
+
     }
 }
