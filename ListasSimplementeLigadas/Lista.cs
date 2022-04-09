@@ -13,7 +13,7 @@ namespace ListasSimplementeLigadas
 
         public Lista()
         {
-            this.nodoActual = new Nodo();
+            this.nodoInicial = new Nodo();
         }
         public bool ValidaVacio()
         {
@@ -28,7 +28,7 @@ namespace ListasSimplementeLigadas
         {
             string datosLista = "";
             nodoActual = nodoInicial;
-            while (nodoActual != null)
+            while (nodoActual.Enlace != null)
             {
                 nodoActual = nodoActual.Enlace;
                 datosLista += $"{nodoActual.Valor}\n";
@@ -89,7 +89,7 @@ namespace ListasSimplementeLigadas
                 while (nodoBusqueda.Enlace != null && nodoBusqueda.Enlace.Valor != dato)
                 {
                     nodoBusqueda = nodoBusqueda.Enlace;
-                    if (nodoBusqueda.Valor == dato)
+                    if (nodoBusqueda.Enlace.Valor == dato)
                     {
                         return nodoBusqueda;
                     }
