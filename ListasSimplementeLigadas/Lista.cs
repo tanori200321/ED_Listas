@@ -6,7 +6,34 @@ using System.Threading.Tasks;
 
 namespace ListasSimplementeLigadas
 {
-    internal class Lista
+    public class Lista
     {
+        Nodo nodoInicial;
+        Nodo nodoActual;
+
+        public Lista()
+        {
+            this.nodoActual = new Nodo();
+        }
+        public bool ValidaVacio()
+        {
+            return (nodoInicial.Enlace == null);
+        }
+        public void Vaciar()
+        {
+            nodoInicial.Enlace = null;
+        }
+
+        public string RecorrerLista()
+        {
+            string datosLista = "";
+            nodoActual = nodoInicial;
+            while (nodoActual != null)
+            {
+                nodoActual = nodoActual.Enlace;
+                datosLista += $"{nodoActual.Valor}\n";
+            }
+            return datosLista;
+        }
     }
 }
