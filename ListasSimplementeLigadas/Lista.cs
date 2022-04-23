@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ListasSimplementeLigadas
 {
-    public class Lista
+    public class Lista //Constructor//
     {
         Nodo nodoInicial;
         Nodo nodoActual;

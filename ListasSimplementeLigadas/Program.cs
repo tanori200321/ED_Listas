@@ -6,7 +6,7 @@ listas.AgregarNodo("Dos");
 listas.AgregarNodo("Tres");
 Console.WriteLine(listas.RecorrerLista());
 
-Console.WriteLine("Buscnado Nodo");
+Console.WriteLine("Buscando Nodo");
 Nodo nodoDos = listas.Buscar("Dos");
 Console.WriteLine(nodoDos.Valor);
 
