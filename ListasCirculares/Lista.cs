@@ -10,56 +10,48 @@ namespace ListasCirculares
     {
         Nodo nodoInicial;
         Nodo nodoActual;
-
         public Lista()
         {
-            this.nodoInicial = new Nodo();
+            nodoInicial = new Nodo();
+            nodoInicial.Enlace = nodoInicial;
         }
-
         public bool ValidaVacio()
         {
-            return (nodoInicial.EnlaceSiguiente == null);
-
+            return (nodoInicial.Enlace == nodoInicial);
         }
-
         public void Vaciar()
         {
-            nodoInicial.EnlaceSiguiente = null;
+            nodoInicial.Enlace = nodoInicial;
         }
-
         public string RecorrerLista()
         {
             string datosLista = "";
             nodoActual = nodoInicial;
-            while (nodoActual.EnlaceSiguiente != null)
+            while (nodoActual.Enlace != nodoInicial)
             {
-                nodoActual = nodoActual.EnlaceSiguiente;
+                nodoActual = nodoActual.Enlace;
                 datosLista += $"{nodoActual.Valor}\n";
             }
             return datosLista;
         }
-
         public void AgregarNodo(string dato)
         {
             nodoActual = nodoInicial;
-            while (nodoActual.EnlaceSiguiente != null)
+            while (nodoActual.Enlace != nodoInicial)
             {
-                nodoActual = nodoActual.EnlaceSiguiente;
+                nodoActual = nodoActual.Enlace;
             }
-
-            Nodo nodoNuevo = new Nodo(dato);
-            nodoActual.EnlaceSiguiente = nodoNuevo;
-            nodoNuevo.EnlaceAnterior = nodoActual;
+            Nodo nodoNuevo = new Nodo(dato, nodoInicial);
+            nodoActual.Enlace = nodoNuevo;
         }
-
         public Nodo Buscar(string dato)
         {
             if (ValidaVacio() == false)
             {
                 Nodo nodoBusqueda = nodoInicial;
-                while (nodoBusqueda != null)
+                while (nodoBusqueda.Enlace != nodoInicial)
                 {
-                    nodoBusqueda = nodoBusqueda.EnlaceSiguiente;
+                    nodoBusqueda = nodoBusqueda.Enlace;
                     if (nodoBusqueda.Valor == dato)
                     {
                         return nodoBusqueda;
@@ -68,16 +60,15 @@ namespace ListasCirculares
             }
             return null;
         }
-
         public Nodo BuscarPorIndice(int indice)
         {
             int Indice = -1;
             if (ValidaVacio() == false)
             {
                 Nodo nodoBusqueda = nodoInicial;
-                while (nodoBusqueda.EnlaceSiguiente != null)
+                while (nodoBusqueda.Enlace != nodoInicial)
                 {
-                    nodoBusqueda = nodoBusqueda.EnlaceSiguiente;
+                    nodoBusqueda = nodoBusqueda.Enlace;
                     Indice++;
                     if (Indice == indice)
                     {
@@ -86,18 +77,16 @@ namespace ListasCirculares
                 }
             }
             return null;
-
         }
-
         public Nodo BuscarAnterior(string dato)
         {
             if (ValidaVacio() == false)
             {
                 Nodo nodoBusqueda = nodoInicial;
-                while (nodoBusqueda.EnlaceSiguiente != null && nodoBusqueda.EnlaceSiguiente.Valor != dato)
+                while (nodoBusqueda.Enlace != nodoInicial && nodoBusqueda.Enlace.Valor != dato)
                 {
-                    nodoBusqueda = nodoBusqueda.EnlaceSiguiente;
-                    if (nodoBusqueda.EnlaceSiguiente.Valor == dato)
+                    nodoBusqueda = nodoBusqueda.Enlace;
+                    if (nodoBusqueda.Enlace.Valor == dato)
                     {
                         return nodoBusqueda;
                     }
@@ -105,7 +94,6 @@ namespace ListasCirculares
             }
             return null;
         }
-
         public void BorrarNodo(string dato)
         {
             if (ValidaVacio() == false)
@@ -114,12 +102,11 @@ namespace ListasCirculares
                 if (nodoActual != null)
                 {
                     Nodo nodoAnterior = BuscarAnterior(dato);
-                    nodoAnterior.EnlaceSiguiente = nodoActual.EnlaceSiguiente;
-                    nodoActual.EnlaceSiguiente = nodoAnterior;
+                    nodoAnterior.Enlace = nodoActual.Enlace;
+                    nodoActual.Enlace = null;
                 }
             }
         }
 
     }
 }
-
