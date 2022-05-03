@@ -9,14 +9,14 @@ namespace ListasDobleMenteCirculares
     internal class Nodo
     {
         public string Valor { get; set; }
-        public Nodo Anterior { get; set; }
-        public Nodo Siguiente { get; set; }
+        public Nodo NodoAnterior { get; set; }
+        public Nodo NodoSiguiente { get; set; }
 
-        public Nodo(string valor = "", Nodo anterior = null, Nodo siguiente = null)
+        public Nodo(string valor = "", Nodo nodoanterior = null, Nodo nodosiguiente = null)
         {
             Valor = valor;
-            Anterior = anterior;
-            Siguiente = siguiente;
+            NodoAnterior = nodoanterior;
+            NodoSiguiente = nodosiguiente;
         }
     }
 }

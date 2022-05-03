@@ -6,32 +6,37 @@ using System.Threading.Tasks;
 
 namespace ListasDobleMenteCirculares
 {
-    internal class Lista
+    internal class Listas
     {
         Nodo nodoInicial;
         Nodo nodoActual;
-        public Lista()
+        public Listas()
         {
             nodoInicial = new Nodo();
-            nodoInicial.Siguiente = nodoInicial;
-            nodoInicial.Anterior = nodoInicial;
+            nodoActual = nodoInicial;
+            nodoInicial.NodoSiguiente = nodoInicial;
+            nodoInicial.NodoAnterior = nodoInicial;
+
+
         }
         public bool ValidaVacio()
         {
-            return (nodoInicial.Siguiente == nodoInicial);
+            return (nodoInicial.NodoSiguiente == nodoInicial.NodoAnterior);
+
         }
         public void Vaciar()
         {
-            nodoInicial.Siguiente = nodoInicial;
-            nodoInicial.Anterior = nodoInicial;
+            nodoInicial.NodoSiguiente = nodoInicial;
+            nodoInicial.NodoAnterior = nodoInicial;
+
         }
         public string RecorrerLista()
         {
             string datosLista = "";
             nodoActual = nodoInicial;
-            while (nodoActual.Siguiente != nodoInicial)
+            while (nodoActual.NodoSiguiente != nodoInicial)
             {
-                nodoActual = nodoActual.Siguiente;
+                nodoActual = nodoActual.NodoSiguiente;
                 datosLista += $"{nodoActual.Valor}\n";
             }
             return datosLista;
@@ -39,22 +44,22 @@ namespace ListasDobleMenteCirculares
         public void AgregarNodo(string dato)
         {
             nodoActual = nodoInicial;
-            while (nodoActual.Siguiente != nodoInicial)
+            while (nodoActual.NodoSiguiente != nodoInicial)
             {
-                nodoActual = nodoActual.Siguiente;
+                nodoActual = nodoActual.NodoSiguiente;
             }
             Nodo nodoNuevo = new Nodo(dato, nodoActual, nodoInicial);
-            nodoActual.Siguiente = nodoNuevo;
-            nodoInicial.Anterior = nodoNuevo;
+            nodoActual.NodoSiguiente = nodoNuevo;
+            nodoInicial.NodoAnterior = nodoNuevo;
         }
         public Nodo Buscar(string dato)
         {
             if (ValidaVacio() == false)
             {
                 Nodo nodoBusqueda = nodoInicial;
-                while (nodoBusqueda.Siguiente != nodoInicial)
+                while (nodoBusqueda.NodoSiguiente != nodoInicial)
                 {
-                    nodoBusqueda = nodoBusqueda.Siguiente;
+                    nodoBusqueda = nodoBusqueda.NodoSiguiente;
                     if (nodoBusqueda.Valor == dato)
                     {
                         return nodoBusqueda;
@@ -69,11 +74,11 @@ namespace ListasDobleMenteCirculares
             if (ValidaVacio() == false)
             {
                 Nodo nodoBusqueda = nodoInicial;
-                while (nodoBusqueda.Siguiente != nodoInicial)
+                while (nodoBusqueda.NodoSiguiente != nodoInicial)
                 {
-                    nodoBusqueda = nodoBusqueda.Siguiente;
+                    nodoBusqueda = nodoInicial.NodoSiguiente;
                     Indice++;
-                    if (Indice == indice)
+                    if (Indice == Indice)
                     {
                         return nodoBusqueda;
                     }
@@ -89,11 +94,15 @@ namespace ListasDobleMenteCirculares
                 nodoActual = Buscar(dato);
                 if (nodoActual != null)
                 {
-                    nodoActual.Anterior.Siguiente = nodoActual.Siguiente;
-                    nodoActual.Siguiente.Anterior = nodoActual.Anterior;
+                    Nodo nodoAnterior = nodoActual.NodoAnterior;
+                    nodoAnterior.NodoSiguiente = nodoActual.NodoSiguiente;
+                    nodoActual.NodoSiguiente.NodoAnterior = nodoAnterior;
+                    nodoActual.NodoSiguiente = null;
+                    nodoActual.NodoAnterior = null;
+                    nodoActual.Valor = null;
+
                 }
             }
         }
-
     }
 }
