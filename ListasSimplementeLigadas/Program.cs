@@ -6,11 +6,11 @@ listas.AgregarNodo("Dos");
 listas.AgregarNodo("Tres");
 Console.WriteLine(listas.RecorrerLista());
 
-Console.WriteLine("Buscando Nodo");
+Console.WriteLine("----Buscando Nodo----");
 Nodo nodoDos = listas.Buscar("Dos");
 Console.WriteLine(nodoDos.Valor);
 
-Console.WriteLine("Borrando Dos");
+Console.WriteLine("----Borrando Dos----");
 listas.BorrarNodo("Dos");
 Console.WriteLine(listas.RecorrerLista());
 
