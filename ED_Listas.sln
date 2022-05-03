@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListasDobleMenteLigadas", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListasCirculares", "ListasCirculares\ListasCirculares.csproj", "{A5F9478E-CB1D-461A-A4F5-04CAD81C47C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListasDobleMenteCirculares", "ListasDobleMenteCirculares\ListasDobleMenteCirculares.csproj", "{D56336D0-4F87-479D-BCB4-8C0DD696DE5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListasDobleMenteLigadasCirculares", "ListasDobleMenteLigadasCirculares\ListasDobleMenteLigadasCirculares.csproj", "{00FE9882-8583-4922-ADF2-A02AF9CF3707}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{A5F9478E-CB1D-461A-A4F5-04CAD81C47C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5F9478E-CB1D-461A-A4F5-04CAD81C47C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5F9478E-CB1D-461A-A4F5-04CAD81C47C6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D56336D0-4F87-479D-BCB4-8C0DD696DE5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D56336D0-4F87-479D-BCB4-8C0DD696DE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D56336D0-4F87-479D-BCB4-8C0DD696DE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D56336D0-4F87-479D-BCB4-8C0DD696DE5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00FE9882-8583-4922-ADF2-A02AF9CF3707}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00FE9882-8583-4922-ADF2-A02AF9CF3707}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00FE9882-8583-4922-ADF2-A02AF9CF3707}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00FE9882-8583-4922-ADF2-A02AF9CF3707}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
